@@ -1,0 +1,15 @@
+.env
+.env.*
+__pycache__/
+.pytest_cache/
+.venv/
+venv/
+.ruff_cache/
+.mypy_cache/
+.todo.org
+*.pyc
+*.pyo
+*.swp
+.DS_Store
+.ipynb_checkpoints
+.ipynb_checkpoints/
