@@ -13,7 +13,11 @@ Scenarios covered:
 
 ## Running examples
 
-Type `nix develop .` and run the notebook or script of your choice.
+
+```bash
+cp default.env .env # add openai key
+nix develop . # run the notebook or script of your choice.
+```
 
 ## Citation
 
