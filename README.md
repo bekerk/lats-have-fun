@@ -9,7 +9,7 @@ Languages covered so far:
 - Python (with a small Prolog inference engine)
 
 Scenarios covered:
-- Internal reasoning for logical puzzles
+- Reasoning with logical puzzles
 
 ## Running examples
 

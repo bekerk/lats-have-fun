@@ -1,3 +1,5 @@
+#! /usr/bin/env swipl
+
 % prolog implementation of three gods puzzle
 % -- remove_begin -- %
 % NOTE: the lines below are removed for the LLM so it does not see the gods names.
