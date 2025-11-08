@@ -1,15 +1,19 @@
 # le(a)ts have fun
-Implementation of language agent tree search paper in few languages I find interesting, purely for learning purposes.
+Implementation of the Language Agent Tree Search paper in a few languages I find interesting, purely for learning purposes.
 
 <div align="center">
     <img src="./assets/img.png" width="300" />
 </div>
 
 Languages covered so far:
-- Python (with small Prolog engine for inference engine)
+- Python (with a small Prolog inference engine)
 
 Scenarios covered:
-- Internal reasoning against logical puzzles
+- Internal reasoning for logical puzzles
+
+## Running examples
+
+Type `nix develop .` and run the notebook or script of your choice.
 
 ## Citation
 

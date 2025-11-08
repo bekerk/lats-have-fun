@@ -46,6 +46,9 @@
               pkgs.livebook
               pkgs.swi-prolog
             ];
+            shellHook = ''
+              uv sync
+            '';
           };
         };
       }
