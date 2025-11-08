@@ -48,6 +48,9 @@
             ];
             shellHook = ''
               uv sync
+              if [ ! -f .env ]; then
+                cp default.env .env
+              fi
             '';
           };
         };

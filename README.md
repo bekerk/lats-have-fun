@@ -15,8 +15,7 @@ Scenarios covered:
 
 
 ```bash
-cp default.env .env # add openai key
-nix develop . # run the notebook or script of your choice.
+nix develop . # fill .env file and run the notebook or script of your choice.
 ```
 
 ## Citation
