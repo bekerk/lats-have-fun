@@ -9,8 +9,8 @@ dependencies = [
     "numpy>=2.3.4",
     "openai>=2.6.0",
     "pyswip>=0.3.3",
-    "raylib>=5.5.0.3",
     "nbqa>=1.9.1",
+    "dearpygui>=2.1.0",
 ]
 
 [dependency-groups]

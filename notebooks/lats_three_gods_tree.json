@@ -1,0 +1,133 @@
+{
+  "id": "4d8e1179d81344e983e76073508beed1",
+  "state": "No predicates asked yet",
+  "parent": null,
+  "context": "",
+  "depth": 0,
+  "value": 0.0,
+  "visit_count": 1,
+  "self_reflection": "",
+  "reward": 0,
+  "is_terminal": false,
+  "children": [
+    {
+      "id": "589545c89a7345769b3ec1371e8ef65b",
+      "state": "meta_ask(a, (b = random_god), Answer). => {\"Answer\": \"da\"}",
+      "parent": "No predicates asked yet",
+      "context": "",
+      "depth": 1,
+      "value": 1.0,
+      "visit_count": 1,
+      "self_reflection": "",
+      "reward": 0,
+      "is_terminal": false,
+      "children": [
+        {
+          "id": "4dc9d9d2038047dcbfde0641bea3fbed",
+          "state": "meta_ask(b, (c = random_god), Answer). => {\"Answer\": \"da\"}",
+          "parent": "meta_ask(a, (b = random_god), Answer). => {\"Answer\": \"da\"}",
+          "context": "meta_ask(a, (b = random_god), Answer). => {\"Answer\": \"da\"}",
+          "depth": 2,
+          "value": 1.0,
+          "visit_count": 1,
+          "self_reflection": "",
+          "reward": 0,
+          "is_terminal": false,
+          "children": [
+            {
+              "id": "7135252d5df2480ba0c3efb361b367fc",
+              "state": "meta_ask(a, (b = true_god), Answer). => {\"Answer\": \"da\"}",
+              "parent": "meta_ask(b, (c = random_god), Answer). => {\"Answer\": \"da\"}",
+              "context": "meta_ask(a, (b = random_god), Answer). => {\"Answer\": \"da\"}\nmeta_ask(b, (c = random_god), Answer). => {\"Answer\": \"da\"}",
+              "depth": 3,
+              "value": 1.0,
+              "visit_count": 1,
+              "self_reflection": "",
+              "reward": 1,
+              "is_terminal": false,
+              "children": []
+            },
+            {
+              "id": "f7d1fadf1f884e1984653307c7b70e04",
+              "state": "meta_ask(c, (a = random_god), Answer). => {\"Answer\": \"ja\"}",
+              "parent": "meta_ask(b, (c = random_god), Answer). => {\"Answer\": \"da\"}",
+              "context": "meta_ask(a, (b = random_god), Answer). => {\"Answer\": \"da\"}\nmeta_ask(b, (c = random_god), Answer). => {\"Answer\": \"da\"}",
+              "depth": 3,
+              "value": 0.86,
+              "visit_count": 0,
+              "self_reflection": "",
+              "reward": 0,
+              "is_terminal": false,
+              "children": []
+            },
+            {
+              "id": "bc8a5bf96f37472a92797c4b695c449d",
+              "state": "meta_ask(a, (b = true_god), Answer). => {\"Answer\": \"da\"}",
+              "parent": "meta_ask(b, (c = random_god), Answer). => {\"Answer\": \"da\"}",
+              "context": "meta_ask(a, (b = random_god), Answer). => {\"Answer\": \"da\"}\nmeta_ask(b, (c = random_god), Answer). => {\"Answer\": \"da\"}",
+              "depth": 3,
+              "value": 0.65,
+              "visit_count": 0,
+              "self_reflection": "",
+              "reward": 0,
+              "is_terminal": false,
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": "c78cb8b678884578bdb38f6b82c8fcf7",
+          "state": "meta_ask(a, (a = true_god), Answer). => {\"Answer\": \"da\"}",
+          "parent": "meta_ask(a, (b = random_god), Answer). => {\"Answer\": \"da\"}",
+          "context": "meta_ask(a, (b = random_god), Answer). => {\"Answer\": \"da\"}",
+          "depth": 2,
+          "value": 0.51,
+          "visit_count": 0,
+          "self_reflection": "",
+          "reward": 0,
+          "is_terminal": false,
+          "children": []
+        },
+        {
+          "id": "ef0c58fbe3564ee68c72de1e8879af36",
+          "state": "meta_ask(b, (a = true_god), Answer). => {\"Answer\": \"da\"}",
+          "parent": "meta_ask(a, (b = random_god), Answer). => {\"Answer\": \"da\"}",
+          "context": "meta_ask(a, (b = random_god), Answer). => {\"Answer\": \"da\"}",
+          "depth": 2,
+          "value": 0.65,
+          "visit_count": 0,
+          "self_reflection": "",
+          "reward": 0,
+          "is_terminal": false,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "a2d113403e6c4816a5e6068ad0cb285b",
+      "state": "meta_ask(a, (b = random_god), Answer). => {\"Answer\": \"da\"}",
+      "parent": "No predicates asked yet",
+      "context": "",
+      "depth": 1,
+      "value": 0.67,
+      "visit_count": 0,
+      "self_reflection": "",
+      "reward": 0,
+      "is_terminal": false,
+      "children": []
+    },
+    {
+      "id": "52057ac213b247fe80e9d80d027004ee",
+      "state": "meta_ask(a, (b = random_god), Answer). => {\"Answer\": \"da\"}",
+      "parent": "No predicates asked yet",
+      "context": "",
+      "depth": 1,
+      "value": 0.61,
+      "visit_count": 0,
+      "self_reflection": "",
+      "reward": 0,
+      "is_terminal": false,
+      "children": []
+    }
+  ]
+}
