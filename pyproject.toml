@@ -17,3 +17,6 @@ dependencies = [
 dev = [
     "ipykernel>=7.0.1",
 ]
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
