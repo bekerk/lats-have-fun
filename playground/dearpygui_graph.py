@@ -1,4 +1,4 @@
-#! /usr/bin/env python3
+#!/usr/bin/env python3
 
 import json
 
@@ -55,10 +55,22 @@ def link(tree):
         link(child)
 
 
-def format(tree, idx=1, level=1):
-    for idx, child in enumerate(tree["children"]):
-        dpg.set_item_pos(child["id"], (idx * 500, level * 254))
-        format(child, idx + 1, level + 1)
+def layout(tree, level=0, spacing=(254, 254), next_x=None):
+    if next_x is None:
+        next_x = {"value": 0}
+
+    child_positions = []
+    for child in tree["children"]:
+        child_positions.append(layout(child, level + 1, spacing, next_x))
+
+    if child_positions:
+        x = sum(cp[0] for cp in child_positions) / len(child_positions)
+    else:
+        x = next_x["value"]
+        next_x["value"] += 1
+
+    dpg.set_item_pos(tree["id"], (x * spacing[0], level * spacing[1]))
+    return (x, level)
 
 
 def move_right(_sender, _app_data, node_ids):
@@ -124,7 +136,7 @@ with (
 ):
     draw(tree, NODE_IDS)
     link(tree)
-    format(tree)
+    layout(tree)
 
 
 dpg.set_primary_window("Tree", True)
