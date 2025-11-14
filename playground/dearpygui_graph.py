@@ -7,6 +7,27 @@ import dearpygui.dearpygui as dpg
 dpg.create_context()
 NODE_IDS = []
 SCROLL_PAN_STEP = 100
+START_COLOR = (0, 0, 150)
+END_COLOR = (0, 150, 0)
+
+
+def set_themes():
+    themes = {}
+    with dpg.theme() as start_node_theme:
+        with dpg.theme_component(dpg.mvAll):
+            dpg.add_theme_color(
+                dpg.mvNodeCol_TitleBar, START_COLOR, category=dpg.mvThemeCat_Nodes
+            )
+            themes["start_node_theme"] = start_node_theme
+
+    with dpg.theme() as end_node_theme:
+        with dpg.theme_component(dpg.mvAll):
+            dpg.add_theme_color(
+                dpg.mvNodeCol_TitleBar, END_COLOR, category=dpg.mvThemeCat_Nodes
+            )
+            themes["end_node_theme"] = end_node_theme
+
+    return themes
 
 
 def draw(tree, node_ids, idx=0, level=0):
@@ -55,13 +76,20 @@ def link(tree):
         link(child)
 
 
-def layout(tree, level=0, spacing=(254, 254), next_x=None):
+def layout(tree, level=0, spacing=(254, 254), next_x=None, reward_node_id=None):
     if next_x is None:
         next_x = {"value": 0}
 
+    if tree["reward"] == 1:
+        reward_node_id = tree["id"]
+
     child_positions = []
     for child in tree["children"]:
-        child_positions.append(layout(child, level + 1, spacing, next_x))
+        child_result = layout(child, level + 1, spacing, next_x, reward_node_id)
+        child_positions.append(child_result)
+
+        if child_result[2] is not None:
+            reward_node_id = child_result[2]
 
     if child_positions:
         x = sum(cp[0] for cp in child_positions) / len(child_positions)
@@ -70,7 +98,14 @@ def layout(tree, level=0, spacing=(254, 254), next_x=None):
         next_x["value"] += 1
 
     dpg.set_item_pos(tree["id"], (x * spacing[0], level * spacing[1]))
-    return (x, level)
+
+    return (x, level, reward_node_id)
+
+
+def bind_themes(head, final_node, themes):
+    dpg.bind_item_theme(head, themes.get("start_node_theme"))
+    if final_node is not None:
+        dpg.bind_item_theme(final_node, themes.get("end_node_theme"))
 
 
 def move_right(_sender, _app_data, node_ids):
@@ -134,9 +169,12 @@ with (
     ),
     dpg.node_editor(tag="dag"),
 ):
+    head = tree["id"]
+    themes = set_themes()
     draw(tree, NODE_IDS)
     link(tree)
-    layout(tree)
+    _x, _y, final_node = layout(tree)
+    bind_themes(head, final_node, themes)
 
 
 dpg.set_primary_window("Tree", True)
